@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "3dac0472-985d-4cd0-9f96-3f2c2c24d298",
+		"name": "viacep-consulta",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24017958"
+	},
+	"item": [
+		{
+			"name": "CEP",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"function consultaCep(){\r",
+							"    var cep = [\"08655196\",\"08655140\",\"09550300\"]\r",
+							"    var randomItem = cep[Math.floor(Math.random() * cep.length )];\r",
+							"    return randomItem;\r",
+							"}\r",
+							"\r",
+							"console.log (consultaCep())\r",
+							"\r",
+							"pm.environment.set(\"Cep\", \"consultaCep()\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/08655140/json/",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"08655140",
+						"json",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
